@@ -4,7 +4,7 @@ export interface IlistingsParams {
   userId?: string;
   guestCount?: number;
   roomCount?: number;
-  bathRoomCount?: number;
+  bathroomCount?: number;
   startDate?: string;
   endDate?: string;
   locationValue?: string;
@@ -15,12 +15,12 @@ export default async function getListings(params: IlistingsParams) {
   try {
     const {
       userId,
-      guestCount,
-      roomCount,
-      bathRoomCount,
+      roomCount, 
+      guestCount, 
+      bathroomCount, 
+      locationValue,
       startDate,
       endDate,
-      locationValue,
       category,
     } = params;
 
@@ -45,9 +45,9 @@ export default async function getListings(params: IlistingsParams) {
         gte: +guestCount,
       };
     }
-    if (bathRoomCount) {
-      query.bathRoomCount = {
-        gte: +bathRoomCount,
+    if (bathroomCount) {
+      query.bathroomCount = {
+        gte: +bathroomCount,
       };
     }
 
